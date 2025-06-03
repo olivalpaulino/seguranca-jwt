@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Admin</title>
+</head>
+<body>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+  <h1>Área do Administrador</h1>
+  <p>Acesso restrito a usuários com ROLE_ADMIN.</p>
+  <p>
+    <a th:href="@{/}">Voltar para Home</a> |
+  <form th:action="@{/logout}" method="post" style="display:inline;">
+    <button type="submit">Sair</button>
+  </form>
+  </p>
+</div>
+</body>
+</html>
